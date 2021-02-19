@@ -14,12 +14,19 @@ struct ContentView: View {
     
     //MARK: Computed Properties
     var body: some View {
-        Text(someText)
-            .padding()
-            .onAppear() {
-                //Invoke function to make quote appear
+        
+        VStack {
+            Text(someText)
+                .padding()
+                .onAppear() {
+                    //Invoke function to make quote appear
+                    deepQuote()
+                }
+            
+            Button("Get another quote") {
                 deepQuote()
             }
+        }
     }
     
     //MARK: Functions
