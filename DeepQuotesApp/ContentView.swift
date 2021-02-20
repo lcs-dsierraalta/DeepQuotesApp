@@ -12,6 +12,8 @@ struct ContentView: View {
     //MARK: Stored Properties
     @State var someText = "Hello world!"
     
+    @State var someAuthor = ""
+    
     //MARK: Computed Properties
     var body: some View {
         
@@ -20,6 +22,12 @@ struct ContentView: View {
                 .padding()
                 .onAppear() {
                     //Invoke function to make quote appear
+                    deepQuote()
+                }
+            
+            Text(someAuthor)
+                .padding()
+                .onAppear() {
                     deepQuote()
                 }
             
@@ -96,6 +104,7 @@ struct ContentView: View {
 
                     // Assign the result to the "someText" stored property
                     someText = decodedQuoteData.quoteText
+                    someAuthor = decodedQuoteData.quoteAuthor
 
                 }
 
